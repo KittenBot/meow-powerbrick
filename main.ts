@@ -88,7 +88,7 @@ namespace powerbrick {
         // [DigitalPin.P9, DigitalPin.P10]
     ]
 
-    const PortAnalog = [
+    const PortAnalog: AnalogInOutPin[] = [
         pins.A0,
         pins.A1,
         pins.D1,
@@ -424,18 +424,16 @@ namespace powerbrick {
     //% weight=60
     //% group="Environment" blockGap=50
     export function Soil(port: PortsA): number {
-        // let read = PortAnalog[port].analogRead();
-        // return read;
-        return 0;
+        let read = PortAnalog[port].analogRead();
+        return read;
     }
 
     //% blockId=powerbrick_waterlevel block="Water level |port %port"
     //% weight=60
     //% group="Environment" blockGap=50
     export function WaterLevel(port: PortsA): number {
-        //let read = PortAnalog[port]
-        //return read()
-        return 0;
+        let read = PortAnalog[port].analogRead();
+        return read()
     }
 
 
