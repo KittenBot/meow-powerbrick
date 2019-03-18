@@ -71,7 +71,7 @@ namespace powerbrick {
         WRITE_SUCC = 4
     }
 
-    const PortDigi = [
+    const PortPin = [
         [pins.A2, pins.A0],
         // [DigitalPin.P8, DigitalPin.P0],
         [pins.D0, pins.A1],
@@ -88,10 +88,15 @@ namespace powerbrick {
         // [DigitalPin.P9, DigitalPin.P10]
     ]
 
-    const PortSerial = [
-        [pins.A2, pins.A0]
+    const PortAnalog = [
+        pins.A0,
+        pins.A1,
+        pins.D1,
+        pins.MISO,
+        pins.A3,
+        pins.A4,
+        pins.A5
     ]
-
 
     export enum Ports {
         PORT1 = 0,
@@ -328,7 +333,7 @@ namespace powerbrick {
     //% group="Ultrasonic/Mic" weight=91
     export function Ultrasonic(port: Ports): number {
         // send pulse
-        let pin = PortDigi[port][0]
+        let pin = PortPin[port][0]
         pin.setPull(PinPullMode.PullNone);
         pin.digitalWrite(false);
         control.waitMicros(2);
@@ -351,7 +356,7 @@ namespace powerbrick {
     //% weight=90
     //% group="Ultrasonic/Mic" blockGap=50
     export function SoundSensor(port: PortsA): number {
-        //let read = PortAnalog[port]
+        let read = PortPin[port]
         //return read()
         return 0;
     }
@@ -359,7 +364,7 @@ namespace powerbrick {
     //% blockId=powerbrick_tracer block="Tracer|port %port|slot %slot"
     //% group="Linefollower" weight=81
     export function Tracer(port: Ports, slot: Slots): boolean {
-        let pin = PortDigi[port][slot]
+        let pin = PortPin[port][slot]
         pin.setPull(PinPullMode.PullUp)
         return pin.digitalRead()
     }
@@ -368,7 +373,7 @@ namespace powerbrick {
     //% weight=80
     //% group="Linefollower" blockGap=50
     export function onTracerEvent(port: Ports, slot: Slots, handler: () => void): void {
-        let pin = PortDigi[port][slot]
+        let pin = PortPin[port][slot]
         pin.setPull(PinPullMode.PullUp)
         pin.onPulsed(PulseValue.High, handler)
     }
@@ -376,7 +381,7 @@ namespace powerbrick {
     //% blockId=powerbrick_bumper block="Bumper|port %port|slot %slot"
     //% group="Bumper" weight=71
     export function Bumper(port: Ports, slot: Slots): boolean {
-        let pin = PortDigi[port][slot]
+        let pin = PortPin[port][slot]
         pin.setPull(PinPullMode.PullUp)
         return !pin.digitalRead()
     }
@@ -384,7 +389,7 @@ namespace powerbrick {
     //% blockId=powerbrick_onBumperEvent block="on Bumper|%port|slot %slot pressed"
     //% group="Bumper" weight=70
     export function onBumperEvent(port: Ports, slot: Slots, handler: () => void): void {
-        let pin = PortDigi[port][slot]
+        let pin = PortPin[port][slot]
 
         pin.setPull(PinPullMode.PullUp)
         pin.onPulsed(PulseValue.Low, handler)
@@ -395,7 +400,7 @@ namespace powerbrick {
     //% weight=60
     //% group="Environment" blockGap=50
     export function DHT11(port: Ports, readtype: DHT11Type): number {
-        let pin = PortDigi[port][0]
+        let pin = PortPin[port][0]
 
         // todo: get pinname in ts
         // let value = (dht11Update(pin - 7) >> 0)
@@ -419,8 +424,8 @@ namespace powerbrick {
     //% weight=60
     //% group="Environment" blockGap=50
     export function Soil(port: PortsA): number {
-        //let read = PortAnalog[port]
-        //return read()
+        // let read = PortAnalog[port].analogRead();
+        // return read;
         return 0;
     }
 
@@ -524,10 +529,7 @@ namespace powerbrick {
     //% blockId=powerbrick_mp3_connect block="MP3 Connect|port %port"
     //% group="MP3" weight=39
     export function MP3Connect(port: SerialPorts): void {
-        let pin0 = PortSerial[port][0]
-        let pin1 = PortSerial[port][1]
-        // todo: fiber may freeze on steam reading
-        // serial.redirect(pin1, SerialPin.P16, BaudRate.BaudRate9600)
+        // todo: use soft serial implement
     }
 
     //% blockId=powerbrick_mp3_play block="MP3 Play|%PrevNext"
@@ -752,7 +754,7 @@ namespace powerbrick {
     //% weight=85 blockGap=8
     //% group="RGB"
     export function rgbConnect(port: Ports) {
-        rgbPin = PortDigi[port][0];
+        rgbPin = PortPin[port][0];
     }
 
     /**
@@ -1046,16 +1048,14 @@ namespace powerbrick {
     //% blockId=powerbrick_getpin block="Digital port|%port slot|%slot"
     //% advanced=true
     export function GetPin(port: Ports, slot: Slots): DigitalInOutPin {
-        return PortDigi[port][slot];
+        return PortPin[port][slot];
     }
 
-    /*
     //% blockId=powerbrick_getanalog block="Analog port|%port"
     //% advanced=true
     export function GetAnalog(port: PortsA): AnalogInOutPin {
         return PortAnalog[port];
     }
-    */
 
 }
 

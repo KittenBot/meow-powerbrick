@@ -4,7 +4,8 @@
     "description": "Powerbrick series module for meowbit",
     "license": "MIT",
     "dependencies": {
-        "core": "*"
+        "core": "*",
+        "meowbit": "*"
     },
     "files": [
         "README.md",
