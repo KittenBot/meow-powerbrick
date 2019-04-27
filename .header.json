@@ -1,19 +1,20 @@
 {
-    "target": "meowbit",
-    "targetVersion": "0.1.6",
+    "target": "arcade",
+    "targetVersion": "0.11.8",
     "name": "powerbrick",
     "meta": {},
-    "editor": "blocksprj",
+    "editor": "tsprj",
     "pubId": "",
     "pubCurrent": false,
     "_rev": null,
-    "id": "cf988820-a4bf-4c9e-e918-a62f460b8dc8",
-    "recentUse": 1551785401,
-    "modificationTime": 1551785134,
+    "id": "d60f496d-0763-4e7d-1c1c-1b9aaf1b3170",
+    "recentUse": 1556364620,
+    "modificationTime": 1556364620,
     "blobId": null,
     "blobVersion": null,
     "blobCurrent": false,
     "isDeleted": false,
     "path": "meow-powerbrick",
-    "githubCurrent": false
+    "githubCurrent": false,
+    "saveId": null
 }

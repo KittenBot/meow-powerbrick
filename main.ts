@@ -72,30 +72,33 @@ namespace powerbrick {
     }
 
     const PortPin = [
-        [pins.A2, pins.A0],
+        //[pins.A2, pins.A0],
         // [DigitalPin.P8, DigitalPin.P0],
-        [pins.D0, pins.A1],
+        [pins.P8, pins.P0],
+        //[pins.D0, pins.A1],
         // [DigitalPin.P12, DigitalPin.P1],
-        [pins.SCK, pins.D1],
+        [pins.P12, pins.P1],
+        //[pins.SCK, pins.D1],
         // [DigitalPin.P13, DigitalPin.P2],
-        [pins.MOSI, pins.MISO],
+        [pins.P13, pins.P2],
+        //[pins.MOSI, pins.MISO],
         // [DigitalPin.P15, DigitalPin.P14],
-        [pins.D9, pins.A3],
+        [pins.P15, pins.P14],
+        //[pins.D9, pins.A3],
         // [DigitalPin.P6, DigitalPin.P3],
-        [pins.D2, pins.A4],
+        [pins.P6, pins.P3],
+        //[pins.D2, pins.A4],
         // [DigitalPin.P7, DigitalPin.P4],
-        [pins.D3, pins.A5],
+        [pins.P7, pins.P4],
+        //[pins.D3, pins.A5],
         // [DigitalPin.P9, DigitalPin.P10]
+        [pins.P9, pins.P10]
     ]
 
-    const PortAnalog: AnalogInOutPin[] = [
-        pins.A0,
-        pins.A1,
-        pins.D1,
-        pins.MISO,
-        pins.A3,
-        pins.A4,
-        pins.A5
+    const PortAnalog: PwmPin[] = [
+        pins.P0,
+        pins.P1,
+        pins.P2
     ]
 
     export enum Ports {
@@ -259,7 +262,7 @@ namespace powerbrick {
     type EvtAct = () => void;
     let onRfidPresent: EvtAct = null;
     let rgbBuf: Buffer = pins.createBuffer(RGB_PIX * 3);
-    let rgbPin: DigitalPin;
+    let rgbPin: DigitalInOutPin;
     let rgbBright: number = 30;
 
     function setBufferRGB(offset: number, red: number, green: number, blue: number): void {

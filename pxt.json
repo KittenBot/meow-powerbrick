@@ -5,7 +5,8 @@
     "license": "MIT",
     "dependencies": {
         "core": "*",
-        "meowbit": "*"
+        "edge-connector": "*",
+        "serial": "*"
     },
     "files": [
         "README.md",
@@ -13,5 +14,6 @@
         "_locales/zh-cn/powerbrick-strings.json",
         "_locales/zh-tw/powerbrick-strings.json"
     ],
-    "public": true
+    "public": true,
+    "preferredEditor": "tsprj"
 }

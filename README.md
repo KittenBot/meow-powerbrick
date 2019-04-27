@@ -11,7 +11,6 @@ Powerbrick is composition by Armoubit and a series of electrionic and actuator m
 
 With Madecode as the programming platform, users can learn the most common and effective programming methods without staying in a specific programming language or software of a hardware manufacturer. Armourbit expansion box with servo drive, motor drive, buzzer.
 
-
 ----------
 
 For more infomation please visit [Learn Powerbrick](http://learn.kittenbot.cn/zh_CN/latest/powerbrick/index.html)
@@ -22,7 +21,7 @@ MIT
 
 ## Supported targets
 
-* for PXT/meowbit
+* for PXT/arcade
 (The metadata above is needed for package search.)
 
 ```package
