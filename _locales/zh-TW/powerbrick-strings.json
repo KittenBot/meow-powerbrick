@@ -8,7 +8,7 @@
     "powerbrick.DHT11|block": "DHT11溫度|接口 %port|類型 %readtype",
     "powerbrick.Soil|block": "土壤感應器|接口 %port",
     "powerbrick.WaterLevel|block": "水位感應器|接口 %port",
-    "powerbrick.Servo|block": "GeekServo|9g舵機|%index|角度 %degree",
+    "powerbrick.Servo|block": "GeekServo 9g舵機|%index|角度 %degree",
     "powerbrick.Servo2KG|block": "2kg舵機|%index|角度 %degree",
     "powerbrick.MotorRun|block": "馬達|%index|速度 %speed",
     "powerbrick.MotorRunDual|block": "雙馬達|速度 %speed1|速度 %speed2",

@@ -454,6 +454,22 @@ namespace powerbrick {
         let value = v_us * 4096 / 20000
         setPwm(index, 0, value)
     }
+    
+    //% blockId=powerbrick_servo2kg block="Servo2kg|%index|degree %degree"
+    //% weight=50
+    //% blockGap=50
+    //% degree.min=0 degree.max=360
+    //% group="Actuator" name.fieldEditor="gridpicker" name.fieldOptions.columns=4
+    export function Servo2KG(index: Servos, degree: number): void {
+        if (!initialized) {
+            initPCA9685()
+        }
+        // 50hz: 20,000 us
+        let v_us = (Math.floor((degree) * 2000 / 350) + 500) //fixed
+        let value = v_us * 4096 / 20000
+        setPwm(index + 7, 0, value)
+    }
+
 
     //% blockId=powerbrick_motor_run block="Motor|%index|speed %speed"
     //% weight=44
