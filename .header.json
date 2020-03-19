@@ -1,6 +1,10 @@
 {
     "target": "arcade",
+<<<<<<< HEAD
     "targetVersion": "0.11.8",
+=======
+    "targetVersion": "0.16.45",
+>>>>>>> translate
     "name": "powerbrick",
     "meta": {},
     "editor": "tsprj",
@@ -8,8 +12,13 @@
     "pubCurrent": false,
     "_rev": null,
     "id": "d60f496d-0763-4e7d-1c1c-1b9aaf1b3170",
+<<<<<<< HEAD
     "recentUse": 1556364620,
     "modificationTime": 1556364620,
+=======
+    "recentUse": 1584514216,
+    "modificationTime": 1584514143,
+>>>>>>> translate
     "blobId": null,
     "blobVersion": null,
     "blobCurrent": false,

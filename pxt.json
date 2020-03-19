@@ -1,17 +1,18 @@
 {
     "name": "powerbrick",
-    "version": "0.2.5",
+    "version": "0.2.6",
     "description": "Powerbrick series module for meowbit",
     "license": "MIT",
     "dependencies": {
         "core": "*",
-        "edge-connector": "*"
+        "edge-connector": "*",
+        "serial": "*"
     },
     "files": [
         "README.md",
         "main.ts",
-        "_locales/zh-cn/powerbrick-strings.json",
-        "_locales/zh-tw/powerbrick-strings.json"
+        "_locales/zh-CN/powerbrick-strings.json",
+        "_locales/zh-TW/powerbrick-strings.json"
     ],
     "public": true,
     "preferredEditor": "tsprj"

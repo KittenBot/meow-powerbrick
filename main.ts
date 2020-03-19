@@ -333,7 +333,12 @@ namespace powerbrick {
     }
 
     //% blockId=powerbrick_ultrasonic block="Ultrasonic|port %port"
+<<<<<<< HEAD
     //% group="Ultrasonic/Mic" weight=91
+=======
+    //% group="Ultrasonic/Mic"
+    //% weight=91
+>>>>>>> translate
     export function Ultrasonic(port: Ports): number {
         // send pulse
         let pin = PortPin[port][0]
@@ -365,7 +370,12 @@ namespace powerbrick {
     }
 
     //% blockId=powerbrick_tracer block="Tracer|port %port|slot %slot"
+<<<<<<< HEAD
     //% group="Linefollower" weight=81
+=======
+    //% group="Linefollower"
+    //% weight=81
+>>>>>>> translate
     export function Tracer(port: Ports, slot: Slots): boolean {
         let pin = PortPin[port][slot]
         pin.setPull(PinPullMode.PullUp)
@@ -382,7 +392,12 @@ namespace powerbrick {
     }
 
     //% blockId=powerbrick_bumper block="Bumper|port %port|slot %slot"
+<<<<<<< HEAD
     //% group="Bumper" weight=71
+=======
+    //% group="Bumper"
+    //% weight=71
+>>>>>>> translate
     export function Bumper(port: Ports, slot: Slots): boolean {
         let pin = PortPin[port][slot]
         pin.setPull(PinPullMode.PullUp)
@@ -390,7 +405,12 @@ namespace powerbrick {
     }
 
     //% blockId=powerbrick_onBumperEvent block="on Bumper|%port|slot %slot pressed"
+<<<<<<< HEAD
     //% group="Bumper" weight=70
+=======
+    //% group="Bumper"
+    //% weight=70
+>>>>>>> translate
     export function onBumperEvent(port: Ports, slot: Slots, handler: () => void): void {
         let pin = PortPin[port][slot]
 
@@ -401,7 +421,12 @@ namespace powerbrick {
 
     //% blockId=powerbrick_dht11 block="DHT11|port %port|type %readtype"
     //% weight=60
+<<<<<<< HEAD
     //% group="Environment" blockGap=50
+=======
+    //% group="Environment"
+    //% blockGap=50
+>>>>>>> translate
     export function DHT11(port: Ports, readtype: DHT11Type): number {
         let pin = PortPin[port][0]
 
@@ -425,7 +450,12 @@ namespace powerbrick {
 
     //% blockId=powerbrick_soil block="Soil|port %port"
     //% weight=60
+<<<<<<< HEAD
     //% group="Environment" blockGap=50
+=======
+    //% group="Environment"
+    //% blockGap=50
+>>>>>>> translate
     export function Soil(port: PortsA): number {
         let read = PortAnalog[port].analogRead();
         return read;
@@ -433,7 +463,12 @@ namespace powerbrick {
 
     //% blockId=powerbrick_waterlevel block="Water level |port %port"
     //% weight=60
+<<<<<<< HEAD
     //% group="Environment" blockGap=50
+=======
+    //% group="Environment"
+    //% blockGap=50
+>>>>>>> translate
     export function WaterLevel(port: PortsA): number {
         let read = PortAnalog[port].analogRead();
         return read()
@@ -455,6 +490,25 @@ namespace powerbrick {
         setPwm(index, 0, value)
     }
 
+<<<<<<< HEAD
+=======
+    //% blockId=powerbrick_servo2kg block="Servo2KG|%index|degree %degree"
+    //% weight=49
+    //% blockGap=50
+    //% degree.min=0 degree.max=360
+    //% group="Actuator" name.fieldEditor="gridpicker" name.fieldOptions.columns=4
+    export function Servo2KG(index: Servos, degree: number): void {
+        if (!initialized) {
+            initPCA9685()
+        }
+        // 50hz: 20,000 us
+        //let v_us = (degree * 2000 / 360 + 500)  0.5 ~ 2.5
+        let v_us = (Math.floor((degree) * 2000 / 350) + 500) //fixed
+        let value = v_us * 4096 / 20000
+        setPwm(index, 0, value)
+    }
+
+>>>>>>> translate
     //% blockId=powerbrick_motor_run block="Motor|%index|speed %speed"
     //% weight=44
     //% speed.min=-255 speed.max=255
@@ -506,7 +560,12 @@ namespace powerbrick {
     }
 
     //% blockId=powerbrick_stop block="Motor Stop|%index|"
+<<<<<<< HEAD
     //% group="Actuator" weight=41
+=======
+    //% group="Actuator"
+    //% weight=41
+>>>>>>> translate
     export function MotorStop(index: Motors): void {
         MotorRun(index, 0);
     }
@@ -528,13 +587,23 @@ namespace powerbrick {
     }
 
     //% blockId=powerbrick_mp3_connect block="MP3 Connect|port %port"
+<<<<<<< HEAD
     //% group="MP3" weight=39
+=======
+    //% group="MP3"
+    //% weight=39
+>>>>>>> translate
     export function MP3Connect(port: SerialPorts): void {
         // todo: use soft serial implement
     }
 
     //% blockId=powerbrick_mp3_play block="MP3 Play|%PrevNext"
+<<<<<<< HEAD
     //% group="MP3" weight=38
+=======
+    //% group="MP3"
+    //% weight=38
+>>>>>>> translate
     export function MP3Play(pn: PrevNext): void {
         let buf = pins.createBuffer(5);
         buf[0] = 0x7e;
@@ -548,7 +617,12 @@ namespace powerbrick {
     //% blockId=powerbrick_mp3_volumn block="MP3 Volumn|%volumn"
     //% volumn.min=0 volumn.max=31
     //% name.fieldEditor="gridpicker" name.fieldOptions.columns=4
+<<<<<<< HEAD
     //% group="MP3" weight=37
+=======
+    //% group="MP3"
+    //% weight=37
+>>>>>>> translate
     export function MP3Volumn(volumn: number): void {
         let buf = pins.createBuffer(6);
         buf[0] = 0x7e;
@@ -561,7 +635,12 @@ namespace powerbrick {
     }
 
     //% blockId=powerbrick_mp3_playindex block="MP3 Play Index|%index"
+<<<<<<< HEAD
     //% group="MP3" weight=37
+=======
+    //% group="MP3"
+    //% weight=37
+>>>>>>> translate
     export function MP3PlayIndex(index: number): void {
         let buf = pins.createBuffer(7);
         if (index == 0) {
@@ -596,13 +675,23 @@ namespace powerbrick {
     }
 
     //% blockId=powerbrick_gc_mode block="Gesture/Color mode|%mode"
+<<<<<<< HEAD
     //% group="Color/Gesture" weight=29
+=======
+    //% group="Color/Gesture"
+    //% weight=29
+>>>>>>> translate
     export function GC_MODE(mode: GCMode): void {
         i2cwrite(KC_ADDR, KC_MODE, mode);
     }
 
     //% blockId=powerbrick_gc_color block="Gesture/Color Color Hue"
+<<<<<<< HEAD
     //% group="Color/Gesture" weight=28
+=======
+    //% group="Color/Gesture"
+    //% weight=28
+>>>>>>> translate
     export function GC_Color(): number {
         pins.i2cWriteNumber(KC_ADDR, KC_READCOLOR, NumberFormat.UInt8BE);
         let buff = pins.i2cReadBuffer(KC_ADDR, 2);
@@ -610,7 +699,12 @@ namespace powerbrick {
     }
 
     //% blockId=powerbrick_gc_brightness block="Gesture/Color Brightness"
+<<<<<<< HEAD
     //% group="Color/Gesture" weight=27
+=======
+    //% group="Color/Gesture"
+    //% weight=27
+>>>>>>> translate
     export function GC_Brightness(): number {
         pins.i2cWriteNumber(KC_ADDR, KC_READCOLOR, NumberFormat.UInt8BE);
         let buff = pins.i2cReadBuffer(KC_ADDR, 2);
@@ -620,13 +714,23 @@ namespace powerbrick {
     //% blockId=powerbrick_gc_ledpwm block="Gesture/Color LED Brightness|%pwm"
     //% pwm.min=0 pwm.max=255
     //% name.fieldEditor="gridpicker" name.fieldOptions.columns=4
+<<<<<<< HEAD
     //% group="Color/Gesture" weight=26
+=======
+    //% group="Color/Gesture"
+    //% weight=26
+>>>>>>> translate
     export function GC_LEDPWM(pwm: number): void {
         i2cwrite(KC_ADDR, KC_LEDPWM, pwm);
     }
 
     //% blockId=powerbrick_gc_ledonoff block="Gesture/Color LED|%index|On/Off %onoff"
+<<<<<<< HEAD
     //% group="Color/Gesture" weight=25
+=======
+    //% group="Color/Gesture"
+    //% weight=25
+>>>>>>> translate
     export function GC_LEDONOFF(index: GCLed, onoff: GCOnOff): void {
         let buf = pins.createBuffer(3)
         buf[0] = KC_LEDONOFF
@@ -637,7 +741,12 @@ namespace powerbrick {
     }
 
     //% blockId=powerbrick_gc_ledbit block="Gesture/Color|LED1 %l1|LED2 %l2|LED3 %l3|LED4 %l4"
+<<<<<<< HEAD
     //% group="Color/Gesture" weight=24
+=======
+    //% group="Color/Gesture"
+    //% weight=24
+>>>>>>> translate
     export function GC_LEDBIT(l1: GCOnOff, l2: GCOnOff, l3: GCOnOff, l4: GCOnOff): void {
         let buf = pins.createBuffer(2)
         buf[0] = KC_LEDBIT
@@ -647,20 +756,35 @@ namespace powerbrick {
     }
 
     //% blockId=powerbrick_gc_proximity block="Gesture/Color Proximity"
+<<<<<<< HEAD
     //% group="Color/Gesture" weight=23
+=======
+    //% group="Color/Gesture"
+    //% weight=23
+>>>>>>> translate
     export function GC_PROXIMITY(): number {
         return i2cread(KC_ADDR, KC_PROXIMITY)
     }
 
     //% blockId=powerbrick_gc_gesture block="Gesture/Color last gesture"
+<<<<<<< HEAD
     //% group="Color/Gesture" weight=22
+=======
+    //% group="Color/Gesture"
+    //% weight=22
+>>>>>>> translate
     export function GC_Gesture(): number {
         return i2cread(KC_ADDR, KC_GESTURE)
     }
 
     //% blockId=powerbrick_gc_rgb block="Gesture/Color RGB|%rgb"
+<<<<<<< HEAD
     //% group="Color/Gesture" weight=21
     //% blockGap = 50
+=======
+    //% group="Color/Gesture" blockGap=50
+    //% weight=21
+>>>>>>> translate
     export function GC_RGB(rgb: GCRgb): number {
         pins.i2cWriteNumber(KC_ADDR, KC_READCOLORRAW, NumberFormat.UInt8BE);
         let buff = pins.i2cReadBuffer(KC_ADDR, 4);
@@ -669,7 +793,11 @@ namespace powerbrick {
 
     //% blockId=powerbrick_rfidprobe block="RFID Probe"
     //% weight=21
+<<<<<<< HEAD
     //% group="RFID" 
+=======
+    //% group="RFID"
+>>>>>>> translate
     export function RfidProbe(): void {
         let stat = i2cread(RFID_ADDR, RFID_STATUS);
         if (stat == 1) {
@@ -682,7 +810,11 @@ namespace powerbrick {
 
     //% blockId=powerbrick_onrfidpresent block="RFID Present and wait"
     //% weight=20
+<<<<<<< HEAD
     //% group="RFID" 
+=======
+    //% group="RFID"
+>>>>>>> translate
     export function RfidPresent(handler: () => void): void {
         onRfidPresent = handler;
     }
@@ -698,7 +830,11 @@ namespace powerbrick {
 
     //% blockId=powerbrick_rfidwrite block="RFID Write sector|%sector block|%block text|%txt"
     //% weight=18
+<<<<<<< HEAD
     //% group="RFID" 
+=======
+    //% group="RFID"
+>>>>>>> translate
     export function RfidWrite(sector: RfidSector, block: RfidBlock, txt: string): void {
         let buf = pins.createBuffer(19)
         buf[0] = RFID_WRITE
@@ -715,7 +851,11 @@ namespace powerbrick {
 
     //% blockId=powerbrick_rfidread block="RFID Read sector|%sector block|%block"
     //% weight=17
+<<<<<<< HEAD
     //% group="RFID" 
+=======
+    //% group="RFID"
+>>>>>>> translate
     export function RfidRead(sector: RfidSector, block: RfidBlock): string {
         let retry: number = 5;
         let buf = pins.createBuffer(3)
@@ -764,8 +904,14 @@ namespace powerbrick {
      * @param endHue the end hue value for the rainbow, eg: 360
      */
     //% blockId="powerbrick_rgbrainbow" block="show rainbow from %startHue|to %endHue"
+<<<<<<< HEAD
     //% weight=85 blockGap=8
     //% group="RGB" 
+=======
+    //% weight=85
+    //% blockGap=8
+    //% group="RGB"
+>>>>>>> translate
     export function showRainbow(startHue: number = 1, endHue: number = 360) {
         const saturation = 100;
         const luminance = 50;
@@ -810,8 +956,14 @@ namespace powerbrick {
     }
 
     //% blockId="neopixel_set_strip_color" block="show color %rgb=neopixel_colors"
+<<<<<<< HEAD
     //% weight=85 blockGap=8
     //% group="RGB" 
+=======
+    //% weight=85
+    //% blockGap=8
+    //% group="RGB"
+>>>>>>> translate
     export function showColor(rgb: number) {
         let red = unpackR(rgb);
         let green = unpackG(rgb);
@@ -837,7 +989,11 @@ namespace powerbrick {
      * @param l luminosity from 0 to 99
      */
     //% blockId=neopixelHSL block="hue %h|saturation %s|luminosity %l"
+<<<<<<< HEAD
     //% group="RGB" 
+=======
+    //% group="RGB"
+>>>>>>> translate
     export function hsl(h: number, s: number, l: number): number {
         h = Math.round(h);
         s = Math.round(s);
@@ -875,14 +1031,22 @@ namespace powerbrick {
     }
 
     //% blockId="neopixel_clear" block="RGB clear"
+<<<<<<< HEAD
     //% group="RGB" 
+=======
+    //% group="RGB"
+>>>>>>> translate
     export function rgbClear(): void {
         rgbBuf.fill(0, 0, RGB_PIX * 3);
         rgbShow();
     }
 
     //% blockId=setRGBPix block="RGB PIX%pix Color%rgb=neopixel_colors"
+<<<<<<< HEAD
     //% group="RGB" 
+=======
+    //% group="RGB"
+>>>>>>> translate
     export function setRGBPix(pix: number, rgb: number): void {
         if (pix < 0 || pix >= RGB_PIX)
             return;
@@ -903,13 +1067,22 @@ namespace powerbrick {
     }
 
     //% blockId=setRGBXy block="RGB X%x Y%y Color%rgb=neopixel_colors"
+<<<<<<< HEAD
     //% group="RGB" 
+=======
+    //% group="RGB"
+>>>>>>> translate
     export function setRGBXy(x: number, y: number, rgb: number): void {
         setRGBPix(x + y * RGB_M, rgb)
     }
 
     //% blockId=showNum block="Show number %num Color%rgb=neopixel_colors"
+<<<<<<< HEAD
     //% group="RGB" blockGap=16
+=======
+    //% group="RGB"
+    //% blockGap=16
+>>>>>>> translate
     export function showNum(num: number, rgb: number): void {
         num = num % 100;
         let n1 = Math.floor(num / 10);
@@ -941,13 +1114,21 @@ namespace powerbrick {
     }
 
     //% blockId=neopixel_colors block="%color"
+<<<<<<< HEAD
     //% group="RGB" 
+=======
+    //% group="RGB"
+>>>>>>> translate
     export function colors(color: NeoPixelColors): number {
         return color;
     }
 
     //% blockId=rgbColor block="Color red %red|green %green|blue %blue"
+<<<<<<< HEAD
     //% group="RGB" 
+=======
+    //% group="RGB"
+>>>>>>> translate
     export function rgb(red: number, green: number, blue: number): number {
         return packRGB(red, green, blue);
     }
@@ -959,13 +1140,21 @@ namespace powerbrick {
     }
 
     //% blockId=rgbPixRotate block="rotate pixels by %offset"
+<<<<<<< HEAD
     //% group="RGB" 
+=======
+    //% group="RGB"
+>>>>>>> translate
     export function rgbPixRotate(offset: number = 1): void {
         rgbBuf.rotate(-offset * 3, 0, 64 * 3)
     }
 
     //% blockId=rgbShow block="RGB show"
+<<<<<<< HEAD
     //% group="RGB" 
+=======
+    //% group="RGB"
+>>>>>>> translate
     export function rgbShow() {
         // ws2812b.sendBuffer(rgbBuf, rgbPin);
     }
@@ -981,7 +1170,11 @@ namespace powerbrick {
 
     //% blockId=rgb_show_icon
     //% block="show icon %i"
+<<<<<<< HEAD
     //% group="RGB" 
+=======
+    //% group="RGB"
+>>>>>>> translate
     //% i.fieldEditor="gridpicker"
     //% i.fieldOptions.width="400" i.fieldOptions.columns="5"
     //% i.fieldOptions.itemColour="black" i.fieldOptions.tooltips="true"
