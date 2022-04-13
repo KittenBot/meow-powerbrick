@@ -436,7 +436,7 @@ namespace powerbrick {
     //% group="Environment" blockGap=50
     export function WaterLevel(port: PortsA): number {
         let read = PortAnalog[port].analogRead();
-        return read()
+        return read;
     }
 
 
